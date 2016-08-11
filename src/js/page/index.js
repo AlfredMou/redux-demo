@@ -6,13 +6,17 @@ import BaseStyle from 'less/base.less';
 import MStyle from 'less/moudle.less';
 import PageStyle from 'less/page/index.less';
 
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
 import rootReducer from 'js/reducers/page/index.js';
 
-import CommentInput from 'js/components/commentInput/commentInput.js';
+import Comment from 'js/components/comment/comment.js';
 
 let store = createStore(rootReducer,applyMiddleware(thunk));
-//console.log(CommentList);
-render(<CommentInput/>,document.getElementById('app'));
+
+render( <div>
+	        <Provider store={store}>
+	            <Comment/>
+	        </Provider>
+    	</div>,document.getElementById('app'));
 
 

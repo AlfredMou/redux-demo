@@ -6,7 +6,8 @@ import  {ADD_COMMENT, DELETE_COMMENT } from "js/constants/comment.js"
 *	date:评论时间
 *}
 **/
-export default addItem = (options)=>{
+
+export const addItem = (options)=>{
 	return  dispatch => {
        setTimeout(() => dispatch({
        	type: ADD_ITEM,
@@ -14,7 +15,8 @@ export default addItem = (options)=>{
        }), 1000)
     }
 }
-export default deleteItem = (id)=>{
+
+export const deleteItem = (id)=>{
 	return {
 		type:DELETE_ITEM,
 		id:id

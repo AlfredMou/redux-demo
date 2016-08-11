@@ -20,7 +20,7 @@ class CommentInput extends React.Component {
     }
   }
   onCommentPub(event){
-    
+      
   }
   render() {
     var {commentContext,isOver}=this.state,showError="";

@@ -316,3 +316,35 @@ body {
   color: #fff;
   background-color: #000;
 }
+.m-url-list {
+  margin: auto;
+  padding: 20px;
+  width: 600px;
+  text-align: left;
+  background-color: #ffffff;
+}
+.m-url-list h3 {
+  font-size: 16px;
+  font-weight: bold;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.m-url-list .url-list p {
+  line-height: 20px;
+}
+.m-url-list .url-list li {
+  padding: 20px 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.m-url-list .url-list .author {
+  height: 30px;
+  line-height: 30px;
+}
+.m-url-list .content {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.m-url-list .date {
+  text-align: right;
+}

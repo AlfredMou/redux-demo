@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 //import urlList from "../components/urlList.js";
-import Comment from "../components/commentjs";
+import comments from "../components/comment.js";
 
 const rootReducer = combineReducers({
-  Comment
+  comments
 });
  
 export default rootReducer;

@@ -19,8 +19,8 @@ class CommentList extends React.Component {
     		<ul className="url-list">
             {comments.map(value=>{
                 return <li>
-                            <p className="author">{value.name}</p>
-                            <p className="content">{value.comment}</p>
+                            <p className="author">{value.author}</p>
+                            <p className="content">{value.content}</p>
                             <p className="date">{value.date}</p>
                        </li>
             })}
