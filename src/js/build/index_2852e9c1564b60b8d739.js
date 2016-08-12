@@ -34,7 +34,7 @@ webpackJsonp([0,1],[
 
 	var _index4 = _interopRequireDefault(_index3);
 
-	var _comment = __webpack_require__(211);
+	var _comment = __webpack_require__(213);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
@@ -23353,7 +23353,7 @@ webpackJsonp([0,1],[
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _user = __webpack_require__(218);
+	var _user = __webpack_require__(211);
 
 	var _user2 = _interopRequireDefault(_user);
 
@@ -23439,12 +23439,57 @@ webpackJsonp([0,1],[
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _user = __webpack_require__(212);
+
+	console.log(window.xx);
+	var GetUserMessage = window.xx.userMessage || null;
+
+	var User = function User() {
+		var state = arguments.length <= 0 || arguments[0] === undefined ? GetUserMessage : arguments[0];
+		var action = arguments[1];
+
+		switch (action.type) {
+			case _user.CHANGE_USER:
+				return {
+					id: action.id,
+					name: action.name
+				};
+			case _user.EXITE_OUT:
+				return null;
+			default:
+				return state;
+		}
+	};
+	exports.default = User;
+
+/***/ },
+/* 212 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var CHANGE_USER = exports.CHANGE_USER = 'CHANGE_USER';
+	var EXITE_OUT = exports.EXITE_OUT = 'EXITE_OUT';
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _comment = __webpack_require__(212);
+	var _comment = __webpack_require__(214);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
@@ -23452,17 +23497,17 @@ webpackJsonp([0,1],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commentInput = __webpack_require__(213);
+	var _commentInput = __webpack_require__(215);
 
 	var _commentInput2 = _interopRequireDefault(_commentInput);
 
-	var _commentList = __webpack_require__(215);
+	var _commentList = __webpack_require__(217);
 
 	var _commentList2 = _interopRequireDefault(_commentList);
 
 	var _reactRedux = __webpack_require__(175);
 
-	var _comment3 = __webpack_require__(217);
+	var _comment3 = __webpack_require__(219);
 
 	var ComponentActions = _interopRequireWildcard(_comment3);
 
@@ -23517,13 +23562,13 @@ webpackJsonp([0,1],[
 	})(Comment);
 
 /***/ },
-/* 212 */
+/* 214 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 213 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23534,7 +23579,7 @@ webpackJsonp([0,1],[
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _commentInput = __webpack_require__(214);
+	var _commentInput = __webpack_require__(216);
 
 	var _commentInput2 = _interopRequireDefault(_commentInput);
 
@@ -23644,13 +23689,13 @@ webpackJsonp([0,1],[
 	exports.default = CommentInput;
 
 /***/ },
-/* 214 */
+/* 216 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 215 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23661,7 +23706,7 @@ webpackJsonp([0,1],[
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _commentList = __webpack_require__(216);
+	var _commentList = __webpack_require__(218);
 
 	var _commentList2 = _interopRequireDefault(_commentList);
 
@@ -23745,13 +23790,13 @@ webpackJsonp([0,1],[
 	exports.default = CommentList;
 
 /***/ },
-/* 216 */
+/* 218 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 217 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23788,51 +23833,6 @@ webpackJsonp([0,1],[
 	    id: id
 	  };
 	};
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _user = __webpack_require__(219);
-
-	console.log(window.xx);
-	var GetUserMessage = window.xx.userMessage || null;
-
-	var User = function User() {
-		var state = arguments.length <= 0 || arguments[0] === undefined ? GetUserMessage : arguments[0];
-		var action = arguments[1];
-
-		switch (action.type) {
-			case _user.CHANGE_USER:
-				return {
-					id: action.id,
-					name: action.name
-				};
-			case _user.EXITE_OUT:
-				return null;
-			default:
-				return state;
-		}
-	};
-	exports.default = User;
-
-/***/ },
-/* 219 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var CHANGE_USER = exports.CHANGE_USER = 'CHANGE_USER';
-	var EXITE_OUT = exports.EXITE_OUT = 'EXITE_OUT';
 
 /***/ }
 ]);

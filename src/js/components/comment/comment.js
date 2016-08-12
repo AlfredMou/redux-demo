@@ -19,7 +19,7 @@ class Comment extends React.Component {
   	
     return (
     	<div>
-			<CommentInput commentContext="呵呵" addComments={actions.addItem}/>
+  			<CommentInput author={actions.author} commentContext="" addComment={actions.addItem}/>
     		<CommentList comments={this.props.comments}/>
     	</div>	
 	)	
@@ -28,7 +28,8 @@ class Comment extends React.Component {
  
 
 export default connect(state => ({
-	comments:state.comments
+	comments:state.comments,
+  author:state.user
 }), dispatch => ({
      actions: bindActionCreators(ComponentActions, dispatch)
 }))(Comment);

@@ -32,7 +32,7 @@ module.exports = {
   entry: getEntry(configFile.JSENTER),
   output: {
     path: path.join(__dirname, '/src/js/build'),
-    filename: '[name].js'
+    filename: '[name]_[hash].js'
   },
   plugins: [
     new optimize.CommonsChunkPlugin('common.js'),extractLESS

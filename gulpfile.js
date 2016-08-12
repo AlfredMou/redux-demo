@@ -11,8 +11,6 @@ var webpack=require('gulp-webpack');
 	//- 路径替换
 
 //开发模式
-console.log(webpackConfig);
-console.log(webpack);
 gulp.task("dev",function(){
 	gulp.watch(["src/**/*"],function  (argument) {
 		// if change run webpack

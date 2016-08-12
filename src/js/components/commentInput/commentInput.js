@@ -3,7 +3,8 @@ import React from "react"
 
 class CommentInput extends React.Component {
   static defaultProps={
-    commentContext:""
+    commentContext:"",
+    author:null
   }
   constructor(props){
     super(props);
@@ -20,7 +21,19 @@ class CommentInput extends React.Component {
     }
   }
   onCommentPub(event){
-      
+    let textArea=this.getDOMNode("comment-input"),
+        commentContent=textArea.value.trim();
+    if(author==null){
+      alert("用户未登陆");
+    }
+    if(commentContent.length>0&&commentContent.length<300){
+      if(this.props.addComment instanceof Function){
+         this.props.addComment({
+            author:this.props.author,
+            content:commentContent
+         })
+      }
+    }
   }
   render() {
     var {commentContext,isOver}=this.state,showError="";
