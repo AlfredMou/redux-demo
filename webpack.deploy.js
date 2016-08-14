@@ -6,7 +6,8 @@ var optimize = webpack.optimize;
 //额外插件
 //用以生产单独的css文件
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var extractLESS = new ExtractTextPlugin('../../css/[name].css');
+var extractLESS = new ExtractTextPlugin('./css/[name]_[hash].css');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 //获取打包页面入口文件 
 function getEntry(entryList) {
@@ -31,11 +32,15 @@ console.log("入口列表:",getEntry(configFile.JSENTER));
 module.exports = {
   entry: getEntry(configFile.JSENTER),
   output: {
-    path: path.join(__dirname, '/src/js/build'),
-    filename: '[name].js'
+    path: path.join(__dirname, '/build'),
+    filename: 'js/[name]_[hash].js'
   },
   plugins: [
-    new optimize.CommonsChunkPlugin('common.js'),extractLESS
+    new optimize.CommonsChunkPlugin('js/common.js'),extractLESS,new HtmlWebpackPlugin({
+      title: 'My App',
+      filename: 'views/index.ejs',
+      template: path.join(__dirname,'/views/index.ejs'),
+    })
   ],
   module: {
     loaders: [{
@@ -47,6 +52,9 @@ module.exports = {
     },{ 
       test: /\.(png|jpg)$/, 
       loader: 'url-loader?limit=8192'
+    }, {
+        test: /\.html$/,
+        loader: "html"
     }]
   },
   resolve: {

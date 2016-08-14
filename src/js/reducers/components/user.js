@@ -1,6 +1,5 @@
 import  {CHANGE_USER, EXITE_OUT } from "js/constants/user.js";
 
-console.log(window.xx);
 let GetUserMessage=window.xx.userMessage||null;
 
 

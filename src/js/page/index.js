@@ -10,10 +10,14 @@ import {createStore,applyMiddleware} from 'redux';
 import rootReducer from 'js/reducers/page/index.js';
 
 import Comment from 'js/components/comment/comment.js';
+import Article from 'js/components/articleContent/articleContent.js';
 
 let store = createStore(rootReducer,applyMiddleware(thunk));
 
 render( <div>
+	        <Provider store={store}>
+	            <Article/>
+	        </Provider>
 	        <Provider store={store}>
 	            <Comment/>
 	        </Provider>

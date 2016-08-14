@@ -12,7 +12,7 @@ class CommentList extends React.Component {
     }
   }
   render() {
-    var {comments}=this.state;
+    var {comments}=this.props;
     return (
     	<div className="m-url-list">
         <h3>评论:</h3>
@@ -29,5 +29,4 @@ class CommentList extends React.Component {
 	);}
 }
 
-//console.log(CommentList);
 export default CommentList;

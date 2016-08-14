@@ -277,16 +277,19 @@ body {
 }
 .g-body {
   margin: auto;
-  width: 980px;
+  max-width: 980px;
   height: 380px;
 }
 .g-body {
   font-size: 14px;
 }
+._2zcEjhSUKSMUq0brB-MqW0 {
+  background-repeat: no-repeat;
+}
 .m-comment-input {
   margin: auto;
   padding: 20px;
-  width: 600px;
+  width: 100%;
   text-align: left;
   background-color: #ffffff;
 }
@@ -302,7 +305,7 @@ body {
 }
 .m-comment-input .comment-input textarea {
   padding: 20px;
-  width: 560px;
+  width: 96%;
   height: 110px;
 }
 .m-comment-input .del-block {
@@ -310,6 +313,7 @@ body {
   text-align: right;
 }
 .m-comment-input .del-block button {
+  margin-right: 50px;
   height: 28px;
   width: 80px;
   border: none;
@@ -319,7 +323,7 @@ body {
 .m-url-list {
   margin: auto;
   padding: 20px;
-  width: 600px;
+  width: 100%;
   text-align: left;
   background-color: #ffffff;
 }
@@ -347,4 +351,47 @@ body {
 }
 .m-url-list .date {
   text-align: right;
+}
+.art-content {
+  margin: auto;
+  width: 100%;
+  margin-bottom: 40px;
+  background-color: #fff;
+  padding: 20px 20px 40px 20px;
+}
+.art-content h3 {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 40px;
+}
+.art-content img {
+  max-width: 100%;
+}
+.art-content .content {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.art-content .content h3 {
+  margin-bottom: 20px;
+}
+.art-content .content pre {
+  display: none;
+}
+.art-content .suport-warp {
+  margin: auto;
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+.art-content .suport-warp.has-suport {
+  background-color: #63B8FF;
+}
+.art-content .author-mes {
+  font-size: 12px;
 }

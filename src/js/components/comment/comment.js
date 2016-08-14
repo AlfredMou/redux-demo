@@ -6,20 +6,26 @@ import { connect } from 'react-redux';
 import * as ComponentActions from 'js/action/comment.js';
 import { bindActionCreators } from 'redux';
 
-
 class Comment extends React.Component {
   static defaultProps={
-    
+      
   }
   constructor(props){
     super(props);
   }
+  addItemToList(options){
+    var {id,name}=options.author;
+    this.props.actions.addItem({
+      id:id,
+      author:name,
+      content:options.content
+    });
+  }
   render() {
   	var actions=this.props.actions;
-  	
     return (
     	<div>
-  			<CommentInput author={actions.author} commentContext="" addComment={actions.addItem}/>
+  			<CommentInput author={this.props.author} commentContext="" addComment={this.addItemToList.bind(this)}/>
     		<CommentList comments={this.props.comments}/>
     	</div>	
 	)	

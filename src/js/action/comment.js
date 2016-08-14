@@ -7,18 +7,24 @@ import  {ADD_COMMENT, DELETE_COMMENT } from "js/constants/comment.js"
 *}
 **/
 
+const getDateTime=()=>{
+	let nowTime =new Date();
+	return nowTime.getFullYear()+"-"+(nowTime.getMonth()+1)+"-"+nowTime.getDate()+"  "+nowTime.getHours()+":"+nowTime.getMinutes()
+}
+
 export const addItem = (options)=>{
+	let {id,content,author}=options,date=getDateTime();
 	return  dispatch => {
        setTimeout(() => dispatch({
-       	type: ADD_ITEM,
-       	options
-       }), 1000)
+       	type:ADD_COMMENT,
+       	date,id,content,author
+       }), 100)
     }
 }
 
 export const deleteItem = (id)=>{
 	return {
-		type:DELETE_ITEM,
+		type:DELETE_COMMENT,
 		id:id
 	}
 }

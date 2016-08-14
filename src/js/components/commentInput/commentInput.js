@@ -21,9 +21,9 @@ class CommentInput extends React.Component {
     }
   }
   onCommentPub(event){
-    let textArea=this.getDOMNode("comment-input"),
+    let textArea=this.refs.commentInput,
         commentContent=textArea.value.trim();
-    if(author==null){
+    if(this.props.author==null){
       alert("用户未登陆");
     }
     if(commentContent.length>0&&commentContent.length<300){
@@ -31,9 +31,11 @@ class CommentInput extends React.Component {
          this.props.addComment({
             author:this.props.author,
             content:commentContent
-         })
+         });
+         textArea.value="";
       }
     }
+
   }
   render() {
     var {commentContext,isOver}=this.state,showError="";
@@ -44,7 +46,7 @@ class CommentInput extends React.Component {
     	<div className="m-comment-input">
         <h3>评论发表:</h3>
     		<div className="comment-input">
-          <textarea ref="comment-input" onChange={this.onTextareaChange.bind(this)} defaultValue={commentContext}></textarea>
+          <textarea ref="commentInput" onChange={this.onTextareaChange.bind(this)} defaultValue={commentContext}></textarea>
         </div>
         <p className="del-block">{showError}<button onClick={this.onCommentPub.bind(this)} type="button">发表</button></p>
 		</div>);
