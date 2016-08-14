@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app",
     "dev": "webpack --watch",
-    "deploy": "webpack --config webpack.deploy.js -p",
+    "deploy": "webpack --config webpack.deploy.js -p"
   },
   "dependencies": {
     "babel-loader": "^6.2.4",
