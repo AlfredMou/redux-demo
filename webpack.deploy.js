@@ -1,47 +1,36 @@
 var path = require('path');
 var fs=require('fs');
 var configFile=require('./config.js');
+var util=require('./util.js');
 var webpack = require('webpack');
 var optimize = webpack.optimize;
+var plugins=[];
 //额外插件
 //用以生产单独的css文件
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var extractLESS = new ExtractTextPlugin('./css/[name]_[hash].css');
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    extractLESS = new ExtractTextPlugin('./css/[name]_[hash].css'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    viewList=util.getView(configFile.VIEWENTER),htmlList=[];
 
-//获取打包页面入口文件 
-function getEntry(entryList) {
-    var files = {},jsPath,dirs,matchs,entery;
-    for(var i=0,len=entryList.length;i<len;i++){
-      entery=entryList[i];
-      jsPath = path.resolve("./", entery);
-      dirs = fs.readdirSync(jsPath);
-      matchs = [];
-      dirs.forEach(function (item) {
-          matchs = item.match(/(.+)\.js$/);
-          if (matchs) {
-              files[matchs[1]] = path.resolve("./",entery, item);
-          }
-      });
-    }
-    return files;
+for(var index in viewList){
+  plugins.push(new HtmlWebpackPlugin({
+      title: 'My App',
+      filename: 'views/'+index+'.ejs',
+      template: viewList[index],
+      chunks: ["common",index,"common"]
+  }));
 }
 
-console.log("入口列表:",getEntry(configFile.JSENTER));
+plugins.push(new optimize.CommonsChunkPlugin('js/common_[hash].js'));
+plugins.push(extractLESS);
 
 module.exports = {
-  entry: getEntry(configFile.JSENTER),
+  entry: util.getEntry(configFile.JSENTER),
   output: {
     path: path.join(__dirname, '/build'),
     filename: 'js/[name]_[hash].js'
   },
-  plugins: [
-    new optimize.CommonsChunkPlugin('js/common.js'),extractLESS,new HtmlWebpackPlugin({
-      title: 'My App',
-      filename: 'views/index.ejs',
-      template: path.join(__dirname,'/views/index.ejs'),
-    })
-  ],
+  plugins:plugins,
   module: {
     loaders: [{
       test: /\.less$/,
