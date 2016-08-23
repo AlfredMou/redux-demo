@@ -11,10 +11,14 @@ import rootReducer from 'js/reducers/page/index.js';
 
 import Comment from 'js/components/comment/comment.js';
 import Article from 'js/components/articleContent/articleContent.js';
+import UserBar from 'js/components/userBar/UserBar.js';
 
 let store = createStore(rootReducer,applyMiddleware(thunk));
 
 render( <div>
+			<Provider store={store}>
+	            <UserBar/>
+	        </Provider>
 	        <Provider store={store}>
 	            <Article/>
 	        </Provider>

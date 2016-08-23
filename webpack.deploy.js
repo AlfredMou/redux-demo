@@ -8,27 +8,28 @@ var plugins=[];
 //额外插件
 //用以生产单独的css文件
 var ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    extractLESS = new ExtractTextPlugin('./css/[name]_[hash].css'),
+    extractLESS = new ExtractTextPlugin('css/[name]_[hash].css'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     viewList=util.getView(configFile.VIEWENTER),htmlList=[];
 
 for(var index in viewList){
   plugins.push(new HtmlWebpackPlugin({
       title: 'My App',
-      filename: 'views/'+index+'.ejs',
+      filename: '../views/'+index+'.ejs',
       template: viewList[index],
-      chunks: ["common",index,"common"]
+      chunks: ["common",index]
   }));
 }
 
-plugins.push(new optimize.CommonsChunkPlugin('js/common_[hash].js'));
+plugins.push(new optimize.CommonsChunkPlugin("common",'js/common_[hash].js'));
 plugins.push(extractLESS);
 
 module.exports = {
   entry: util.getEntry(configFile.JSENTER),
   output: {
-    path: path.join(__dirname, '/build'),
-    filename: 'js/[name]_[hash].js'
+    path: path.join(__dirname, '/output/static'),
+    filename: 'js/[name]_[hash].js',
+    publicPath:"/static"
   },
   plugins:plugins,
   module: {
@@ -40,7 +41,7 @@ module.exports = {
       loader:"babel?sourceMap"
     },{ 
       test: /\.(png|jpg)$/, 
-      loader: 'url-loader?limit=8192'
+      loader: 'url-loader?limit=8192&name=/build/image/[name].[ext]'
     }, {
         test: /\.html$/,
         loader: "html"

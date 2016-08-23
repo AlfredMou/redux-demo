@@ -1,4 +1,5 @@
-import style from "./comment.less"
+import img from "./commen_bg.jpg"
+import style from "./comment.less";
 import React from "react";
 import CommentInput from "../commentInput/commentInput.js";
 import CommentList from "../commentList/commentList.js";

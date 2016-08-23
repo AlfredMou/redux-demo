@@ -16,7 +16,7 @@ class CommentInput extends React.Component {
   onTextareaChange(event){
     if(event.target.value.length>300){
       this.setState({isOver:true})
-    }else{
+    }else{+
       this.setState({isOver:false})
     }
   }

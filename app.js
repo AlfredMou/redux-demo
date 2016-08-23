@@ -20,9 +20,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use("/static",express.static(path.join(__dirname, 'src')));
+app.use("/static",express.static(path.join(__dirname, 'build')));
 app.use("/static",express.static(path.join(__dirname, 'res')));
-console.log("static files:",path.join(__dirname, 'src'),",",path.join(__dirname, 'res'));
 app.use('/', routes);
 app.use('/users', users);
 

@@ -12,7 +12,7 @@ import  {CHANGE_USER, EXITE_OUT } from "js/constants/user.js"
  * @param  {[type]} changeUser [description]
  * @return {[type]}            [description]
  */
-export const changeUser=>(options){
+export const changeUser=(options)=>{
 	return dispatch => {
        setTimeout(() => dispatch({
        	type: CHANGE_USER,
@@ -25,7 +25,7 @@ export const changeUser=>(options){
  * @param  {[type]} exitOut [description]
  * @return {[type]}         [description]
  */
-export const exitOut=>(options){
+export const exitOut=(options)=>{
 	return dispatch => {
        setTimeout(() => dispatch({
        	type: EXITE_OUT
