@@ -25,7 +25,7 @@ class Comment extends React.Component {
   render() {
   	var actions=this.props.actions;
     return (
-    	<div>
+    	<div className="comment-wrap">
   			<CommentInput author={this.props.author} commentContext="" addComment={this.addItemToList.bind(this)}/>
     		<CommentList comments={this.props.comments}/>
     	</div>	

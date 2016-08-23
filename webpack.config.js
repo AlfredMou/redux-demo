@@ -41,7 +41,7 @@ module.exports = {
       loader:"babel?sourceMap"
     },{ 
       test: /\.(png|jpg)$/, 
-      loader: 'url-loader?limit=8192'
+      loader: 'url-loader?limit=8192&name=/image/[name].[ext]'
     }]
   },
   resolve: {
