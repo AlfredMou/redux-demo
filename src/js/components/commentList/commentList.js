@@ -3,7 +3,7 @@ import React from "react"
 
 class CommentList extends React.Component {
   static defaultProps={
-    comments:[{name:"牟金涛",comment:"第一条评论",date:"2012-1-21 16:56"}]
+    comments:[{name:"用户1",comment:"第一条评论",date:"2012-1-21 16:56"}]
   }
   constructor(props){
     super(props);

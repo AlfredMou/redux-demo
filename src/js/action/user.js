@@ -17,7 +17,7 @@ export const changeUser=(options)=>{
        setTimeout(() => dispatch({
        	type: CHANGE_USER,
        	options
-       }), 1000)
+       }), 500)
     }
 }
 /**
@@ -29,6 +29,6 @@ export const exitOut=(options)=>{
 	return dispatch => {
        setTimeout(() => dispatch({
        	type: EXITE_OUT
-       }), 1000)
+       }), 500)
     }
 }

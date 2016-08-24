@@ -23,7 +23,7 @@ const delItem = (state,action)=>{
 	return state.filter(noSameId)
 }
 
-const Comment=(state=[{id:"1",content:"我是第一条评论",author:"牟金涛",date:"2016-8-11 17:46"}],action)=>{
+const Comment=(state=[{id:"1",content:"我是第一条评论",author:"用户1",date:"2016-8-11 17:46"}],action)=>{
 	switch (action.type){
 		case ADD_COMMENT:
 			state.push(actionToItem(action));
