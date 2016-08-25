@@ -51,7 +51,6 @@ class UserBar extends React.Component {
 	)	
   }
 }
- 
 
 export default connect(state => ({
   author:state.user

@@ -13,6 +13,7 @@ import Comment from 'js/components/comment/comment.js';
 import Article from 'js/components/articleContent/articleContent.js';
 import UserBar from 'js/components/userBar/UserBar.js';
 
+//生产store
 let store = createStore(rootReducer,applyMiddleware(thunk));
 
 render( <div>

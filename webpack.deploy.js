@@ -1,16 +1,21 @@
-var path = require('path');
-var fs=require('fs');
-var configFile=require('./config.js');
-var util=require('./util.js');
-var webpack = require('webpack');
-var optimize = webpack.optimize;
-var plugins=[];
+var path = require('path'),
+    fs=require('fs'),
+    configFile=require('./config.js'),
+    util=require('./util.js'),
+    webpack = require('webpack'),
+    optimize = webpack.optimize,
+    plugins=[],staticPath=configFile.STATICPATH||"/static",
+    cdnPath=configFile.CDN||"",
+    publicPath=cdnPath+staticPath,outputPath=configFile.OUTPUT||"/output";
 //额外插件
 //用以生产单独的css文件
 var ExtractTextPlugin = require('extract-text-webpack-plugin'),
     extractLESS = new ExtractTextPlugin('css/[name]_[hash].css'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     viewList=util.getView(configFile.VIEWENTER),htmlList=[];
+
+//清空打包生产后的文件
+util.rmdirSync(path.join(__dirname, outputPath));
 
 for(var index in viewList){
   plugins.push(new HtmlWebpackPlugin({
@@ -27,9 +32,9 @@ plugins.push(extractLESS);
 module.exports = {
   entry: util.getEntry(configFile.JSENTER),
   output: {
-    path: path.join(__dirname, '/output/static'),
+    path: path.join(__dirname, outputPath+'/static'),
     filename: 'js/[name]_[hash].js',
-    publicPath:"/static"
+    publicPath:publicPath
   },
   plugins:plugins,
   module: {

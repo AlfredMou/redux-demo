@@ -1,10 +1,11 @@
-var path = require('path');
-var fs=require('fs');
-var configFile=require('./config.js');
-var util=require('./util.js');
-var webpack = require('webpack');
-var optimize = webpack.optimize;
-var plugins=[];
+var path = require('path'),
+    fs=require('fs'),
+    configFile=require('./config.js'),
+    util=require('./util.js'),
+    webpack = require('webpack'),
+    optimize = webpack.optimize,
+    plugins=[],staticPath=configFile.STATICPATH||"/static";
+
 //额外插件
 //用以生产单独的css文件
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -29,7 +30,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/build'),
     filename: 'js/[name].js',
-    publicPath:"/static"
+    publicPath:staticPath
   },
   plugins:plugins,
   module: {
